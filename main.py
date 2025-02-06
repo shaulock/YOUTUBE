@@ -1,4 +1,4 @@
-from pytube import YouTube, Playlist, Stream, Search
+from pytubefix import YouTube, Playlist, Stream, Search
 from datetime import datetime
 from tabulate import tabulate
 from colorama import init, just_fix_windows_console, Fore, Back, Style
@@ -100,12 +100,13 @@ def print_video_info(yt: YouTube, headers: list=[]) -> None:
     try:
         yt.check_availability()
         if yt.age_restricted:
-            try:
-                yt.bypass_age_gate()
-            except AGRE:
-                print_error('\nWhat kinda videos are you watching!?\nThis was age-restricted and I couldn\'t even bypass it!\n')
-                go_on()
-                print_bye()
+            pass
+            # try:
+            #     # yt.bypass_age_gate()
+            # except AGRE:
+            #     print_error('\nWhat kinda videos are you watching!?\nThis was age-restricted and I couldn\'t even bypass it!\n')
+            #     go_on()
+            #     print_bye()
         available = True
     except KeyboardInterrupt:
         print_bye()
